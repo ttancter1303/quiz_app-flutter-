@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app2/questions_screen.dart';
 import 'package:quiz_app2/start_screen.dart';
 
 class Quiz extends StatefulWidget{
@@ -11,6 +12,14 @@ class Quiz extends StatefulWidget{
   
 }
 class _QuizState extends State<Quiz>{
+  Widget activeScreen  = const StartScreen();
+
+  void setScreen(){
+    setState(() {
+      activeScreen = const QuestionsScreen();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -25,7 +34,7 @@ class _QuizState extends State<Quiz>{
                 ]
             ),
           ),
-          child: StartScreen(),
+          child: activeScreen ,
         ),
       ),
     );
